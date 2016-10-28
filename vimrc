@@ -115,3 +115,7 @@ nnoremap <F5> Vip:sort i<CR>
 " press F8 to turn the search results highlight off
 noremap <F8> :nohl<CR>
 inoremap <F8> <Esc>:nohl<CR>a
+
+" switch between tabs
+nmap <F7> gt
+nmap <F6> gT
