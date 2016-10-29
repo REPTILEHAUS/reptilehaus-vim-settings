@@ -28,6 +28,8 @@ set ruler " show the cursor position all the time
 set showmatch " highlight matching braces
 set showmode " show insert/replace/visual mode
 set number
+set nowrap   " Line wrapping gets annoying when you have small windows.
+set listchars=trail:·,nbsp:·  " Show trailing white space
 
 " write settings
 set confirm " confirm :q in case of unsaved changes
@@ -38,10 +40,13 @@ set nobackup " do not keep the backup~ file
 set backspace=indent,eol,start " backspacing over everything in insert mode
 "set expandtab " fill tabs with spaces
 "set nojoinspaces " no extra space after '.' when joining lines
-set shiftwidth=8 " set indentation depth to 8 columns
-set softtabstop=8 " backspacing over 8 spaces like over tabs
-"set tabstop=8 " set tabulator length to 8 columns
+set shiftwidth=4 " set indentation depth to 4 columns
+set softtabstop=4 " backspacing over 4 spaces like over tabs
+set tabstop=4 " Tabs should always be 4 spaces
 "set textwidth=80 " wrap lines automatically at 80th column
+set autoindent
+set copyindent
+set smartindent
 
 " search settings
 set hlsearch " highlight search results
