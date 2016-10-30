@@ -124,3 +124,7 @@ inoremap <F8> <Esc>:nohl<CR>a
 " switch between tabs
 nmap <F7> gt
 nmap <F6> gT
+
+
+" Stripping trailing whitespace
+autocmd FileType c,cpp,java,php autocmd BufWritePre <buffer> :%s/\s\+$//e
