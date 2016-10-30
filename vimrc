@@ -124,3 +124,9 @@ inoremap <F8> <Esc>:nohl<CR>a
 " switch between tabs
 nmap <F7> gt
 nmap <F6> gT
+
+" Stupid shift key fixes
+  cmap W w
+  cmap WQ wq
+  cmap wQ wq
+  cmap Q q
