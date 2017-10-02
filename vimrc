@@ -31,6 +31,17 @@ set number
 set nowrap   " Line wrapping gets annoying when you have small windows.
 set listchars=trail:·,nbsp:·  " Show trailing white space
 
+"maximize window area
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
+
+" disable audio bells
+set noerrorbells
+set novisualbell
+set t_vb=
+
 " write settings
 set confirm " confirm :q in case of unsaved changes
 set fileencoding=utf-8 " encoding used when saving file
@@ -128,3 +139,11 @@ nmap <F6> gT
 
 " Stripping trailing whitespace
 autocmd FileType c,cpp,java,php autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+" quickly move line up or down
+nnoremap [e  :<c-u>execute 'move -1-'. v:count1<cr>
+nnoremap ]e  :<c-u>execute 'move +'. v:count1<cr>
+
+" session write map
+map <F2> :mksession! ~/.vim/sessions/session.vim <cr> " Quick write session with F2
+map <F3> :source ~/.vim/sessions/session.vim <cr>     " And load session with F3
