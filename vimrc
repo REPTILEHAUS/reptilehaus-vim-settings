@@ -147,3 +147,30 @@ nnoremap ]e  :<c-u>execute 'move +'. v:count1<cr>
 " session write map
 map <F2> :mksession! ~/.vim/sessions/session.vim <cr> " Quick write session with F2
 map <F3> :source ~/.vim/sessions/session.vim <cr>     " And load session with F3
+
+" commenting blocks of code: ,cc to comment, ,cu to uncomment.
+autocmd FileType c,cpp,java,javascript,rust,go let b:comment_leader = '// '
+autocmd FileType sh,ruby,python   let b:comment_leader = '# '
+autocmd FileType tex,sty,cli      let b:comment_leader = '% '
+autocmd FileType vim              let b:comment_leader = '" '
+autocmd FileType haskell		  let b:comment_leader = '--'
+noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+
+" autocorrecting some common typos
+iab hte the
+iab teh the
+iab taht that
+iab htat that
+iab THe The
+iab THen Then
+iab THey They
+iab THis This
+iab THat That
+iab THese These
+iab THere There
+iab THose Those
+iab WHen When
+iab SInce Since
+iab jsut just
+iab FOr For
