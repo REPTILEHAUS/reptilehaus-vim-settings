@@ -65,6 +65,16 @@ set ignorecase " do case insensitive search...
 set incsearch " do incremental search
 set smartcase " ...unless capital letters are used
 
+set wildmode=list:longest,full " gives tab completion lists in ex command area
+set wildmenu
+"" Ignore dist and build folders
+set wildignore+=*/dist*/**,*/target/**,*/build*/**
+" Ignore libs
+set wildignore+=*/lib/**,*/node_modules/**,*/bower_components/**,*/locale/**
+" Ignore images, pdfs, and font files
+set wildignore+=*.png,*.PNG,*.jpg,*.jpeg,*.JPG,*.JPEG,*.pdf
+set wildignore+=*.ttf,*.otf,*.woff,*.woff2,*.eot
+set magic " Use extended regular expressions
 " file type specific settings
 filetype on " enable file type detection
 filetype plugin on " load the plugins for specific file types
@@ -119,7 +129,9 @@ endif
 " center view on the search result
 noremap n nzz
 noremap N Nzz
-
+" find and replace with just S
+nmap S :%s//g<LEFT><LEFT>
+vmap S :s//g<LEFT><LEFT>
 " press F4 to fix indentation in whole file; overwrites marker 'q' position
 noremap <F4> mqggVG=`qzz
 inoremap <F4> <Esc>mqggVG=`qzza
